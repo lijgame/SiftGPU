@@ -28,7 +28,7 @@
 
 
 #include "ProgramGPU.h"
-
+#include <GL/glew.h>
 class ProgramGLSL:public ProgramGPU
 {
 	class ShaderObject

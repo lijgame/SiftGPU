@@ -51,7 +51,7 @@ public:
 	int			 _size;
 	int			 _id; 
 public:
-    FilterProgram()          {  s_shader_h = s_shader_v = NULL; _size = _id = 0; }
+    FilterProgram()          {  s_shader_h = s_shader_v = nullptr; _size = _id = 0; }
     virtual ~FilterProgram() {	if(s_shader_h) delete s_shader_h;	if(s_shader_v) delete s_shader_v;}
 };
 
