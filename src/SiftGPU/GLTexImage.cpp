@@ -1183,7 +1183,7 @@ int GLTexInput::LoadImageFile(char *imagepath, int &w, int &h )
 	}
     if(done)    SetImageData(width, height, data, GL_LUMINANCE, GL_UNSIGNED_BYTE);
 	fclose(file);
-    delete data; 
+    delete[] data; 
     if(GlobalUtil::_verbose && done) std::cout<< "Image loaded :\t" << imagepath << "\n";
 	return 1;
 #endif
