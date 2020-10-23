@@ -32,15 +32,10 @@ ELSE(SIFTGPU_DISABLE_DEVIL)
   SET(LIBS_SIFTGPU ${LIBS_SIFTGPU} IL )
 ENDIF(SIFTGPU_DISABLE_DEVIL)
 
-if (GLEW_FOUND)
-	include_directories( ${GLEW_INCLUDE_DIRS} )
-	SET (GLEW_LIBRARIES GLEW)
-endif (GLEW_FOUND)
-
 ADD_LIBRARY(siftgpu STATIC FrameBufferObject.cpp GlobalUtil.cpp GLTexImage.cpp ProgramGLSL.cpp 
             ProgramGPU.cpp ShaderMan.cpp SiftGPU.cpp SiftPyramid.cpp PyramidGL.cpp SiftMatch.cpp)
 
-TARGET_LINK_LIBRARIES(siftgpu ${LIBS_SIFTGPU} ${GLEW_LIBRARIES} ${OPENGL_LIBRARIES} )
+TARGET_LINK_LIBRARIES(siftgpu ${LIBS_SIFTGPU} GLEW::GLEW ${OPENGL_LIBRARIES} )
 
 INSTALL(FILES SiftGPU.h DESTINATION include)
 INSTALL(TARGETS siftgpu DESTINATION lib )
